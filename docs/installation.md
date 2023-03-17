@@ -31,7 +31,8 @@ If you don't know how to, here is a quick step-by-step information
 
 Mod is using Inworld's great AI and TTS system. This means you need one too. But don't worry, it's quite easy to setup an account. It's also very new-user friendly.
 
-Go to  [inworld.com And you should be seeing something like this:
+Go to  [inworld.com](https://inworld.ai/?utm_campaign=bloctheworker&utm_medium=referral&utm_source=youtube
+) And you should be seeing something like this:
 
 ![](assets/20230316_221212_qoC9Z_1].png)
 
