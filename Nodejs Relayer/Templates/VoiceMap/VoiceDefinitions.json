@@ -1,0 +1,926 @@
+{
+    "voices": [
+        {
+          "name": "Albert Ny",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "name": "Alicia Mckeon",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Alison Adams",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Amber Carswell",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Andrew Knox",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Anita Miller",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Anthony Myers",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "April Willis",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Arthur Sanders",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Arturo Curtis",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Ashley Triplett",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Beau Tolin",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Bertha Scaffidi",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Bobbie Spalding",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Brett Smith",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Carla Greco",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Carol Hazlett",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Carolyn Stowe",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Catherine Cunningham",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Charity Daniels",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Charity Mccloud",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Charles Weathers",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Christopher Ireland",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Christopher Redford",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Christopher Robertson",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Clayton Nieto",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Clelia Kaplan",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Cliff Weber",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Clyde Decker",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Cody Patnode",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Corrinne Fairley",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Cynthia Fisher",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Cynthia Jones",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Daniel Gibson",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Darleen Sands",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "David Egleston",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Deborah Fanno",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Deborah Gonzalez",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Dina Rivera",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Donald Moore",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Donna Drake",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Earl Acosta",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Earline Coppin",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Elinore Mull",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Elizabeth Beckwith",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Emily Stern",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Estela Poehlman",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Gary Reynolds",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Gene Bechtel",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Grandad John",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Haley Ray",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Heather Morris",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jacob Davis",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jacqueline Sparano",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "James Kellar",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "James Washington",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jason Simpson",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jessica Whaley",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "John Chabot",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "John Norton",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jonathan Nolte",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Jorge Metcalf",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Joseph Ares",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Joseph Bishop",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Julie Velasco",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kathy Benson",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kathy Moore",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Katrina Bunker",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kaye Garcia",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kevin Livezey",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kiara Raef",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Kieth Lewis",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Laurie Osborne",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lee Kyle",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lillian Hickok",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lori Alford",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lori Hamilton",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lori Jones",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Lori Kelley",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Ma Michelle",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Malik Winston",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Manuel Bragg",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Maria Holley",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Maria Miller",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Mary Jacquier",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Mary Lambert",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Meghan Sartin",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Melissa Villareal",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Michael Burney",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Michael Cruz",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Michael Rivers",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Michelle Hebert",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Patrice Vu",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Philip Coulter",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Randy Stewart",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Reginald Coleman",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Rhonda Bowers",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Richard Hopkins",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Robert Tucker",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Ruby Sebald",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Scott Lovell",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Shana Jackson",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Susan Pace",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Susan Peters",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Thomas Kirtland",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Tiffany James",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Vanesa Bacote",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Vanessa Williams",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Virginia Bartkowiak",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Virginia Delung",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Walter Wallace",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Wilbert Travis",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Winford Corns",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Feminine - US - Julie",
+          "gender": "FEMALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Masculine - US - Alex",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        },
+        {
+          "languageCodes": [
+            "en-US"
+          ],
+          "name": "Masculine - US - Shaun",
+          "gender": "MALE",
+          "naturalSampleRateHertz": 22050
+        }
+      ]
+}

@@ -1,0 +1,24 @@
+﻿<Module>
+  <Name value="Inworld AI Calradia"/>
+  <Id value="Inworld"/>
+  <Version value="v1.0.0"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <DependedModules>
+	<DependedModule Id="Native" DependentVersion="v1.1.1" Optional="false"/>
+	<DependedModule Id="SandBoxCore" DependentVersion="v1.1.1" Optional="false"/>
+	<DependedModule Id="Sandbox" DependentVersion="v1.1.1" Optional="false"/>	
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="Inworld"/>
+      <DLLName value="Inworld.dll"/>
+      <SubModuleClassType value="Inworld.SubModule"/>
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+  <Xmls/>
+</Module>

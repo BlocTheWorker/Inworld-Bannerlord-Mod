@@ -1,0 +1,49 @@
+{
+    "languageCode": "en",
+    "defaultCharacterAssets": {
+        "rpmImageUri": "",
+        "rpmModelUri": "",
+        "voice": {
+            "baseName": "Masculine - US - Alex",
+            "gender": "VOICE_GENDER_MALE",
+            "pitch": 0,
+            "speakingRate": 1,
+            "ttsType": "TTS_TYPE_ADVANCED",
+            "roboticVoiceFilterLevel": 0
+        }
+    },
+    "defaultCharacterDescription": {
+        "givenName": "Test Character",
+        "description": "Test stuff",
+        "personalityAdjectives": [
+            "noble"
+        ]
+    },
+    "brainSettings": {
+        "conversationConfig": {
+            "fillerSpec": {
+                "fillersDisabled": true
+            },
+            "behavioralContextsDisabled": true
+        }
+    },
+    "facts": [
+    ],
+    "commonKnowledges": [
+    ],
+    "initialMood": {
+        "joy": 0,
+        "fear": 0,
+        "trust": 0,
+        "surprise": 0
+    },
+    "personality": {
+        "positive": 0,
+        "peaceful": 0,
+        "open": 0,
+        "extravert": 0
+    },
+    "emotionalFluidity": 0.5,
+    "isAutoGenerate": true,
+    "brainTriggers": []
+}

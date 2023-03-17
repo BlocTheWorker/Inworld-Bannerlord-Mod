@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@fastify/websocket": "^7.1.2",
+    "@inworld/nodejs-sdk": "^1.1.6",
+    "axios": "^1.3.2",
+    "badwords-list": "^1.0.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.12.0",
+    "lowdb": "^5.1.0"
+  }
+}

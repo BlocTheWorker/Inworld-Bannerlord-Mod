@@ -1,0 +1,264 @@
+<Prefab>
+  <Constants>
+    <Constant Name="Conversation.Relation.Background.Width" BrushLayer="Default" BrushName="Conversation.Relation.Background" BrushValueType="Width" />
+    <Constant Name="Conversation.Relation.Background.Height" BrushLayer="Default" BrushName="Conversation.Relation.Background" BrushValueType="Height" />
+
+    <Constant Name="Conversation.Relation.Handle.Width" BrushLayer="Default" BrushName="Conversation.Relation.Handle" BrushValueType="Width" />
+    <Constant Name="Conversation.Relation.Handle.Height" BrushLayer="Default" BrushName="Conversation.Relation.Handle" BrushValueType="Height" />
+    <Constant Name="LeftPanel.MarginRight" Value="50"/>
+  </Constants>
+  <Window>
+    <ConversationScreenButtonWidget DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Conversation.Screen" AnswerList="VerticalContainer\BottomPanelsContainer\AnswerListContainer\AnswerList" ContinueButton="ContinueButton" Command.OnFinalSelection="ExecuteFinalizeSelection" IsPersuasionActive="@IsPersuading" FrictionEnabled="false">
+      <Children>
+				
+        <!-- Player's Gold -->
+        <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="200" SuggestedHeight="80" VerticalAlignment="Top" HorizontalAlignment="Right" MarginTop="5" MarginRight="15" Brush="Conversation.Gold.Background" DoNotPassEventsToChildren="true" UpdateChildrenStates="true">
+          <Children>
+            <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Right" VerticalAlignment="Center" MarginRight="45">
+              <Children>
+                <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" MarginRight="5" Brush="Conversation.Gold.Text" PositionYOffset="3" ClipContents="false" Text="@GoldText" />
+                <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="33" SuggestedHeight="30" HorizontalAlignment="Right" VerticalAlignment="Center" Sprite="General\Icons\Coin@2x" />
+              </Children>
+            </ListPanel>
+            <HintWidget DataSource="{GoldHint}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint"/>
+          </Children>
+        </BrushWidget>
+
+        <!--Power Comparer Container-->
+        <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" MarginLeft="10" IsVisible="@IsAggressive">
+          <Children>
+
+            <!--Attacker Container-->
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+              <Children>
+                <GridWidget DataSource="{AttackerParties}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Right" DefaultCellWidth="60" DefaultCellHeight="70" ColumnCount="9" LayoutImp="GridLayout" ClipContents="true">
+                  <ItemTemplate>
+                    <SPConversationAggresivePartyItem Parameter.Item.Width="50" MarginTop="20"/>
+                  </ItemTemplate>
+                </GridWidget>
+              </Children>
+            </Widget>
+
+            <SPConversationAggresivePartyItem DataSource="{AttackerLeader}" Parameter.Item.Width="70" MarginTop="20"/>
+
+            <!--Power Level Comparer-->
+            <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="329" SuggestedHeight="201" HorizontalAlignment="Center" PositionYOffset="-140" Sprite="SPGeneral\MapOverlay\Encounter\battle_header" >
+              <Children>
+                <PowerLevelComparer DataSource="{PowerComparer}" SuggestedWidth="250" SuggestedHeight="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="33" Parameter.AttackerFillBarBrush="PowerLevelComparer.LeftBar.Encounter" Parameter.CenterSpace="4" Parameter.DefenderFillBarBrush="PowerLevelComparer.RightBar.Encounter" />
+              </Children>
+            </Widget>
+
+            <SPConversationAggresivePartyItem DataSource="{DefenderLeader}" Parameter.Item.Width="70" MarginTop="20"/>
+
+            <!--Defender Container-->
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+              <Children>
+                <GridWidget DataSource="{DefenderParties}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" DefaultCellWidth="60" DefaultCellHeight="70" ColumnCount="9" LayoutImp="GridLayout" ClipContents="true">
+                  <ItemTemplate>
+                    <SPConversationAggresivePartyItem Parameter.Item.Width="50" MarginTop="20"/>
+                  </ItemTemplate>
+                </GridWidget>
+              </Children>
+            </Widget>
+
+          </Children>
+        </ListPanel>
+
+        <!--Vertical Persuasion and Bottom panels Container-->
+        <ListPanel Id="VerticalContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalTopToBottom" HorizontalAlignment="Center" VerticalAlignment="Bottom" DoNotAcceptEvents="true" IsVisible="@IsRequireClick">
+          <Children>
+
+            <!--Horizontal Left and Right panels container (Answer and options)-->
+            <ListPanel Id="BottomPanelsContainer" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="20" >
+              <Children>
+
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginRight="10" StackLayout.LayoutMethod="VerticalBottomToTop">
+                  <Children>
+
+                    <!--Text Container-->
+                    <ConversationAnswersContainerWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="720" HorizontalAlignment="Right" Sprite="npc_dialogue_panel_9" AlphaFactor="0.65" AnswerContainerWidget="..\..\AnswerListContainer" MinHeight="192">
+                      <Children>
+
+                        <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" PositionYOffset="-25" MarginLeft="40" StackLayout.LayoutMethod="HorizontalRightToLeft">
+                          <Children>
+
+                            <!--Character Name Shadow-->
+                            <NavigationScopeTargeter ScopeID="SPConversationCharacterNameScope" ScopeParent="..\CharacterNameContainer" DoNotAutoGainNavigationOnInit="true" />
+                            <Widget Id="CharacterNameContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Sprite="name_shadow_9">
+                              <Children>
+                                <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" StackLayout.LayoutMethod="HorizontalLeftToRight"  >
+                                  <Children>
+                                    <ButtonWidget Id="CharacterNameIdParent" DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" Command.AlternateClick="ExecuteConversedHeroLink" Command.Click="ExecuteConversedHeroLink" Command.HoverBegin="ExecuteHeroTooltip" Command.HoverEnd="ExecuteCloseTooltip" UpdateChildrenStates="true" IsEnabled="@IsCurrentCharacterValidInEncyclopedia">
+                                      <Children>
+                                        <!--Current Character Name Text-->
+                                        <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="70" MarginLeft="25" MarginRight="10" Brush="Conversation.HeaderText" Brush.TextHorizontalAlignment="Left" Text="@CurrentCharacterNameLbl" HoveredCursorState="RightClickLink" ExtendCursorAreaTop="-20" ExtendCursorAreaBottom="-20" GamepadNavigationIndex="0"/>
+                                      </Children>
+                                    </ButtonWidget>
+                                    <DimensionSyncWidget Id="PersuationPanelSyncWidget" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="1" HorizontalAlignment="Center" MarginRight="!LeftPanel.MarginRight" DimensionToSync="Horizontal" IsVisible="@IsPersuading" WidgetToCopyHeightFrom="..\..\..\..\..\..\..\PersuationExtensionListPanel\PersuationExtensionParent\PersuationExtension" />
+                                  </Children>
+                                </ListPanel>
+                              </Children>
+                            </Widget>
+
+                            <!--Conversed Hero Banner-->
+                            <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="45" SuggestedHeight="45" PositionXOffset="20" VerticalAlignment="Center" IsVisible="@IsBannerEnabled">
+                              <Children>
+                                <ImageIdentifierWidget Id="ConversedHeroBanner" DataSource="{ConversedHeroBanner}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" MarginLeft="5" MarginRight="6" MarginTop="5" MarginBottom="6" AdditionalArgs="@AdditionalArgs" HideWhenNull="true" ImageId="@Id" ImageTypeCode="@ImageTypeCode" />
+                                <HintWidget DataSource="{FactionHint}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                              </Children>
+                            </Widget>
+
+                          </Children>
+                        </ListPanel>
+
+                        <!--Current Character Dialog Text-->
+                        <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" MarginLeft="90" MarginRight="25" MarginTop="25" MarginBottom="25" Brush="Conversation.ConversedPartyLine.Text" Command.LinkAlternateClick="ExecuteLink" Command.LinkClick="ExecuteLink" Text="@DialogText" />
+
+                      </Children>
+                    </ConversationAnswersContainerWidget>
+                  </Children>
+                </Widget>
+
+                <!--Answers Container-->
+                <NavigationScopeTargeter ScopeID="SPConversationItemsScope" ScopeParent="..\AnswerListContainer" ScopeMovements="Vertical" HasCircularMovement="true" IsDefaultNavigationScope="true" />
+                <Widget Id="AnswerListContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" SuggestedWidth="750" HorizontalAlignment="Left" VerticalAlignment="Center" MarginLeft="10">
+                  <Children>
+                    <NavigatableListPanel Id="AnswerList" DataSource="{AnswerList}" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" StackLayout.LayoutMethod="VerticalBottomToTop">
+                      <ItemTemplate>
+                        <ConversationItem />
+                      </ItemTemplate>
+                    </NavigatableListPanel>
+                  </Children>
+                </Widget>
+
+              </Children>
+            </ListPanel>
+
+            <ListPanel Id="PersuationExtensionListPanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" DoNotAcceptEvents="true">
+              <Children>
+
+                <!--Persuasion Visual Container-->
+                <Widget  Id="PersuationExtensionParent" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" IsVisible="@IsPersuading" DoNotAcceptEvents="true" >
+                  <Children>
+
+                    <ImageWidget Id="PersuationExtension" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Right" VerticalAlignment="Bottom" Brush="Conversation.PersuationProgress.Background" Brush.AlphaFactor="0.65" IsVisible="@IsPersuading" ClipContents="false" MarginRight="!LeftPanel.MarginRight">
+                      <Children>
+
+                        <ConversationPersuasionProgressRichTextWidget DataSource="{Persuasion}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" Text="@ProgressText" PositionYOffset="-50" StayTime="2.5" Brush="Conversation.Persuasion.Progress.Text" DoNotAcceptEvents="true" ClipContents="false"/>
+
+                        <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginBottom="10" MarginTop="10">
+                          <Children>
+
+                            <!--<TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="40" HorizontalAlignment="Center" Brush="Conversation.PersuasionTitle.Text" Text="@PersuasionText" />-->
+
+                            <Widget DataSource="{Persuasion}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginRight="50" MarginLeft="50">
+                              <Children>
+
+                                <ListPanel DataSource="{PersuasionProgress}" Id="ProgressClipWidget" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren">
+                                  <ItemTemplate>
+                                    <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" MarginLeft="7" MarginRight="7">
+                                      <Children>
+                                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="23" SuggestedHeight="23" VerticalAlignment="Center" HorizontalAlignment="Center" Sprite="BlankWhiteCircle" Color="#9C7839FF" IsVisible="@IsActive"/>
+                                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Sprite="Conversation\empty_circle" Color="#9C7839FF" />
+                                      </Children>
+                                    </Widget>
+                                  </ItemTemplate>
+                                </ListPanel>
+
+                              </Children>
+                            </Widget>
+
+                          </Children>
+                        </ListPanel>
+
+                        <DimensionSyncWidget DataSource="{Persuasion}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" WidgetToCopyHeightFrom="..\." DimensionToSync="HorizontalAndVertical">
+                          <Children>
+                            <HintWidget DataSource="{PersuasionHint}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                          </Children>
+                        </DimensionSyncWidget>
+
+                      </Children>
+                    </ImageWidget>
+                  </Children>
+                </Widget>
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="1" IsVisible="@IsPersuading"/>
+
+              </Children>
+            </ListPanel>
+          </Children>
+        </ListPanel>
+
+        <!-- Inworld Text Input Area -->
+        <ListPanel Id="InworldContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalTopToBottom" HorizontalAlignment="Center" VerticalAlignment="Bottom" DoNotAcceptEvents="true" IsVisible="@IsRequireType">
+          <Children>
+            <!--Horizontal Left and Right panels container (Answer and options)-->
+            <ListPanel Id="BottomPanelsContainer" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="20">
+              <Children>
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginRight="10" StackLayout.LayoutMethod="VerticalBottomToTop">
+                  <Children>
+                    <!--Text Container-->
+                    <ConversationAnswersContainerWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="720" HorizontalAlignment="Right" Sprite="npc_dialogue_panel_9" AlphaFactor="0.65" AnswerContainerWidget="..\..\AnswerListContainer" MinHeight="192">
+                      <Children>
+                        <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" PositionYOffset="-25" MarginLeft="40" StackLayout.LayoutMethod="HorizontalRightToLeft">
+                          <Children>
+                            <!--Character Name Shadow-->
+                            <NavigationScopeTargeter ScopeID="SPConversationCharacterNameScope" ScopeParent="..\CharacterNameContainer" DoNotAutoGainNavigationOnInit="true" />
+                            <Widget Id="CharacterNameContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Sprite="name_shadow_9">
+                              <Children>
+                                <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" StackLayout.LayoutMethod="HorizontalLeftToRight">
+                                  <Children>
+                                    <ButtonWidget Id="CharacterNameIdParent" DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" Command.AlternateClick="ExecuteConversedHeroLink" Command.Click="ExecuteConversedHeroLink" Command.HoverBegin="ExecuteHeroTooltip" Command.HoverEnd="ExecuteCloseTooltip" UpdateChildrenStates="true" IsEnabled="@IsCurrentCharacterValidInEncyclopedia">
+                                      <Children>
+                                        <!--Current Character Name Text-->
+                                        <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="70" MarginLeft="25" MarginRight="10" Brush="Conversation.HeaderText" Brush.TextHorizontalAlignment="Left" Text="@CurrentCharacterNameLbl" HoveredCursorState="RightClickLink" ExtendCursorAreaTop="-20" ExtendCursorAreaBottom="-20" GamepadNavigationIndex="0"/>
+                                      </Children>
+                                    </ButtonWidget>
+                                    <DimensionSyncWidget Id="PersuationPanelSyncWidget" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="1" HorizontalAlignment="Center" MarginRight="!LeftPanel.MarginRight" DimensionToSync="Horizontal" IsVisible="@IsPersuading" WidgetToCopyHeightFrom="..\..\..\..\..\..\..\PersuationExtensionListPanel\PersuationExtensionParent\PersuationExtension" />
+                                  </Children>
+                                </ListPanel>
+                              </Children>
+                            </Widget>
+                            <!--Conversed Hero Banner-->
+                            <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="45" SuggestedHeight="45" PositionXOffset="20" VerticalAlignment="Center" IsVisible="@IsBannerEnabled">
+                              <Children>
+                                <ImageIdentifierWidget Id="ConversedHeroBanner" DataSource="{ConversedHeroBanner}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" MarginLeft="5" MarginRight="6" MarginTop="5" MarginBottom="6" AdditionalArgs="@AdditionalArgs" HideWhenNull="true" ImageId="@Id" ImageTypeCode="@ImageTypeCode" />
+                                <HintWidget DataSource="{FactionHint}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                              </Children>
+                            </Widget>
+                          </Children>
+                        </ListPanel>
+                        <!--Current Character Dialog Text-->
+                        <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" MarginLeft="90" MarginRight="25" MarginTop="25" MarginBottom="25" Brush="Conversation.ConversedPartyLine.Text" Command.LinkAlternateClick="ExecuteLink" Command.LinkClick="ExecuteLink" Text="@NewDialogText" />
+                      </Children>
+                    </ConversationAnswersContainerWidget>
+                  </Children>
+                </Widget>
+                <!--Answers Container-->
+                <NavigationScopeTargeter ScopeID="SPConversationItemsScope" ScopeParent="..\AnswerListContainer" ScopeMovements="Vertical" NavigateFromScopeEdges="true" ExtendDiscoveryAreaLeft="1" />
+                <Widget Id="AnswerListContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center" MarginLeft="10">
+                  <Children>
+                    <BrushWidget UpdateChildrenStates="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="70" MarginRight="20" Brush="SaveLoad.Search.Button" IsVisible="true">
+                      <Children>
+                        <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="55" PositionYOffset="-50" Text="You say:" Brush="Conversation.HeaderText" Brush.FontSize="27" Brush.TextHorizontalAlignment="Left" />
+                        <EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" SuggestedHeight="10" MarginLeft="10" MarginRight="10" Brush="SaveLoad.Search.InputText" Text="@ConversationText" />
+                      </Children>
+                    </BrushWidget>
+                  </Children>
+                </Widget>
+              </Children>
+            </ListPanel>
+          </Children>
+        </ListPanel>
+
+        <!--Click To Continue Text-->
+        <NavigationScopeTargeter ScopeID="SPConversationClickToContinueButtonScope" ScopeParent="..\ContinueButton" IsDefaultNavigationScope="true"/>
+        <ButtonWidget Id="ContinueButton" DoNotAcceptEvents="true" DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="454" SuggestedHeight="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginRight="250" MarginBottom="22" Sprite="name_shadow_9" Brush.AlphaFactor="0.7" IsDisabled="true" IsVisible="false" >
+          <Children>
+            <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Bottom" Brush="Conversation.HeaderText" Brush.FontSize="45" Text="@ContinueText" ExtendCursorAreaTop="-20" ExtendCursorAreaBottom="-20" GamepadNavigationIndex="0" />
+          </Children>
+        </ButtonWidget>
+
+      </Children>
+    </ConversationScreenButtonWidget>
+  </Window>
+</Prefab>
