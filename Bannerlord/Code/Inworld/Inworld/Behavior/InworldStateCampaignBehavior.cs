@@ -197,43 +197,47 @@ namespace Inworld.Behavior
         {
             List<string> stringList = new List<string>();
 
-            string dateAndStuff = "Today is day " + CampaignTime.Now.GetDayOfSeason + " of season " + GameTexts.FindText("str_season_" + (object)CampaignTime.Now.GetSeasonOfYear) + " and year is " + CampaignTime.Now.GetYear + " in Calradia. Effects of season is very noticeable."; 
-            string locationInformation = "{Character} is currently in {LOCATION} which is owned by {CLAN} clan. Owner and ruler of {LOCATION} is {RULER}. {LOCATION} is a {LOCTYPE}";
-
-            locationInformation =locationInformation.Replace("{LOCATION}", PlayerEncounter.EncounterSettlement.Name.ToString());
-            locationInformation =locationInformation.Replace("{CLAN}", PlayerEncounter.EncounterSettlement.OwnerClan.Name.ToString());
-            locationInformation= locationInformation.Replace("{RULER}", PlayerEncounter.EncounterSettlement.Owner.Name.ToString());
-            locationInformation = locationInformation.Replace("{LOCTYPE}", PlayerEncounter.EncounterSettlement.IsTown? "town" : "village");
-
+            string dateAndStuff = "Today is day " + CampaignTime.Now.GetDayOfSeason + " of season " + GameTexts.FindText("str_season_" + (object)CampaignTime.Now.GetSeasonOfYear) + " and year is " + CampaignTime.Now.GetYear + " in Calradia. Effects of season is very noticeable.";
             stringList.Add(dateAndStuff);
-            stringList.Add(locationInformation);
 
-            var partiesAroundList = InCampaignHelper.GetMobilePartiesAroundPosition(PlayerEncounter.EncounterSettlement.GetPosition2D, MobileParty.MainParty.SeeingRange * 2);
-            if(partiesAroundList.Count() > 0)
+            if (PlayerEncounter.EncounterSettlement != null)
             {
-                int split = 1;
-                List<string> parties = new List<string>();
-                string partiesAround = "Parties around this location are: ";
-                foreach (var party in partiesAroundList)
+                string locationInformation = "{Character} is currently in {LOCATION} which is owned by {CLAN} clan. Owner and ruler of {LOCATION} is {RULER}. {LOCATION} is a {LOCTYPE}";
+
+                locationInformation = locationInformation.Replace("{LOCATION}", PlayerEncounter.EncounterSettlement.Name.ToString());
+                locationInformation = locationInformation.Replace("{CLAN}", PlayerEncounter.EncounterSettlement.OwnerClan.Name.ToString());
+                locationInformation = locationInformation.Replace("{RULER}", PlayerEncounter.EncounterSettlement.Owner.Name.ToString());
+                locationInformation = locationInformation.Replace("{LOCTYPE}", PlayerEncounter.EncounterSettlement.IsTown ? "town" : "village");
+                
+                stringList.Add(locationInformation);
+
+                var partiesAroundList = InCampaignHelper.GetMobilePartiesAroundPosition(PlayerEncounter.EncounterSettlement.GetPosition2D, MobileParty.MainParty.SeeingRange * 2);
+                if (partiesAroundList.Count() > 0)
                 {
-                    if (party.IsGarrison || party.IsMilitia || party.IsMainParty) continue;
-                    partiesAround += party.Name.ToString() + " with around " + party.MemberRoster.TotalHealthyCount + " warriors, ";
-                    split++;
-                    if(split % 3 == 0)
+                    int split = 1;
+                    List<string> parties = new List<string>();
+                    string partiesAround = "Parties around this location are: ";
+                    foreach (var party in partiesAroundList)
                     {
-                        split = 1;
-                        parties.Add(partiesAround);
-                        partiesAround = "Parties around this location are: ";
+                        if (party.IsGarrison || party.IsMilitia || party.IsMainParty) continue;
+                        partiesAround += party.Name.ToString() + " with around " + party.MemberRoster.TotalHealthyCount + " warriors, ";
+                        split++;
+                        if (split % 3 == 0)
+                        {
+                            split = 1;
+                            parties.Add(partiesAround);
+                            partiesAround = "Parties around this location are: ";
+                        }
                     }
+
+                    stringList.AddRange(parties);
                 }
-
-                stringList.AddRange(parties);   
+                else
+                {
+                    stringList.Add("There are no parties or warbands or armies around this location.");
+                }
             }
-            else
-            {
-                stringList.Add("There are no parties or warbands or armies around this location.");
-            }
-
+            
             string text = Settlement.CurrentSettlement.EncyclopediaText.ToString();
             string trimmedDescription = TrimSentence(text, 299);
             stringList.Add(trimmedDescription);
