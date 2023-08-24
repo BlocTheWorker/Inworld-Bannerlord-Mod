@@ -110,16 +110,16 @@ namespace Inworld.Engine
                 backstory = Hero.SetHeroEncyclopediaTextAndLinks(hero).ToString();
             }
             backstory += GetBackgroundSpice(hero);
-            string basicInformation = "{NAME} is {GENDER}. Belongs to {CULTURE} culture. {NAME}s age is {AGE}. {NAME} is member of {CLAN} clan. {NAME} cannot join anyone or give anything not even recruits and doesn't want to join any quest. {NAME} cannot know location of parties that are not part of their kingdom.";
+            string basicInformation = "{NAME} is {GENDER}. Belongs to {CULTURE} culture. {NAME}'s age is {AGE}. {NAME} is member of {CLAN} clan. {NAME} cannot join anyone or give anything not even recruits and doesn't want to join any quest. {NAME} cannot know location of parties that are not part of their kingdom.";
             basicInformation = basicInformation.Replace("{NAME}", hero.Name.ToString());
             basicInformation = basicInformation.Replace("{GENDER}", hero.IsFemale ? "female" : "male");
-            basicInformation = basicInformation .Replace("{CULTURE}", hero.Culture.ToString());
+            basicInformation = basicInformation.Replace("{CULTURE}", hero.Culture.ToString());
             basicInformation = basicInformation.Replace("{AGE}", ((int)hero.Age).ToString());
             basicInformation = basicInformation.Replace("{CLAN}", hero.Clan.Name.ToString());
-            backstory += basicInformation;
+            backstory += " " + basicInformation;
             string somebackstory = Corpus.coreDescriptionHelper.GetRandomElement();
             somebackstory = somebackstory.Replace("{character}", hero.Name.ToString());
-            backstory += somebackstory;
+            backstory += " " + somebackstory;
             backstory = backstory.Substring(0, Math.Min(backstory.Length, 1999));
             return backstory;
         }
@@ -129,25 +129,30 @@ namespace Inworld.Engine
         {
             if (hero.IsFactionLeader)
             {
-                return "{Character} seeks to expand their territory and gain more power and influence.";
-            } else
+                return "{character} seeks to expand their territory and gain more power and influence.";
+            }
+            else
             {
                 if (hero.IsFemale)
                 {
-                    return "{Character} wants to keep her {CLAN} clan members safe.".Replace("{CLAN}", hero.Clan.Name.ToString());
-                } else {
+                    return "{character} wants to keep her {CLAN} clan members safe.".Replace("{CLAN}", hero.Clan.Name.ToString());
+                }
+                else
+                {
 
-                    if(hero.Age < 20)
+                    if (hero.Age < 20)
                     {
-                        return "{Character} wants to be as famous as it's grandfathers.";
-                    } else
+                        return "{character} wants to be as famous as it's grandfathers.";
+                    }
+                    else
                     {
                         if (hero.CanLeadParty())
                         {
-                            return "{Character} seeks to be known commander.";
-                        } else
+                            return "{character} seeks to be known commander.";
+                        }
+                        else
                         {
-                            return "{Character} wants to help {CLAN} clan as much as he can.".Replace("{CLAN}", hero.Clan.Name.ToString());
+                            return "{character} wants to help {CLAN} clan as much as he can.".Replace("{CLAN}", hero.Clan.Name.ToString());
                         }
                     }
                 }
@@ -160,15 +165,15 @@ namespace Inworld.Engine
 
             if (currentAnim.Name.Contains("writer"))
             {
-                return "{Character} was taking notes and reading, before this conversation with {Player}";
+                return "{character} was taking notes and reading, before this conversation with {player}";
             }
             else if (currentAnim.Name.Contains("sit"))
             {
-               return "{Character} was sitting and thinking, before this conversation with {Player}";
+                return "{character} was sitting and thinking, before this conversation with {player}";
             }
             else if (currentAnim.Name.Contains("conversation") && !characterAgent.IsUsingGameObject)
             {
-                return "{Character} was having conversation with someone else, before this conversation with {Player}";
+                return "{character} was having conversation with someone else, before this conversation with {player}";
             }
             else
             {
@@ -179,36 +184,37 @@ namespace Inworld.Engine
                         AnimationPoint usedAnim = characterAgent.CurrentlyUsedGameObject as AnimationPoint;
                         if (usedAnim.RightHandItem.Contains("notebook") || usedAnim.LeftHandItem.Contains("notebook"))
                         {
-                            return "{Character} was taking notes and reading, before this conversation with {Player}";
+                            return "{character} was taking notes and reading, before this conversation with {player}";
                         }
                         else if (usedAnim.LoopStartAction.Contains("repair"))
                         {
-                            return "{Character} was repairing something before this conversation with {Player}";
+                            return "{character} was repairing something before this conversation with {player}";
                         }
                         else if (usedAnim.PairLoopStartAction.Contains("argue"))
                         {
-                            return "{Character} was arguing with friend before this conversation with {Player}";
+                            return "{character} was arguing with friend before this conversation with {player}";
                         }
                         else if (usedAnim.PairLoopStartAction.Contains("gossip"))
                         {
-                            return "{Character} was gossiping with friend before this conversation with {Player}";
+                            return "{character} was gossiping with friend before this conversation with {player}";
                         }
                         else if (usedAnim.PairLoopStartAction.Contains("talk_to"))
                         {
-                            return "{Character} was talking with someone before this conversation with {Player}";
-                        } else
+                            return "{character} was talking with someone before this conversation with {player}";
+                        }
+                        else
                         {
-                            return "{Character} was just catching breath and standing before this conversation with {Player}";
+                            return "{character} was just catching breath and standing before this conversation with {player}";
                         }
                     }
                 }
                 else
                 {
-                    return "{Character} was standing and thinking before this conversation with {Player}";
+                    return "{character} was standing and thinking before this conversation with {player}";
                 }
             }
 
-            return "{Character} wasn't doing anything important before conversation with {Player}, was not tending the crops.";
+            return "{character} wasn't doing anything important before conversation with {player}, was not tending the crops.";
         }
 
         public static string GetVillagerTownsmanBackground()
@@ -216,43 +222,45 @@ namespace Inworld.Engine
             Agent characterAgent = (Agent)Campaign.Current.ConversationManager.OneToOneConversationAgent;
             var list = NameGenerator.Current.GetNameListForCulture((CultureObject)Settlement.CurrentSettlement.Culture, characterAgent.IsFemale);
             string name = list.GetRandomElement().ToString();
-            string description = GetVillagerBackground(name, characterAgent) + ". {Character} cannot join anyone, if {Player} needs recruits, should check local notable for this that can lend recruits. {Character} cannot sell anything, {Player} needs to check local market to buy supplies.";
+            string description = GetVillagerBackground(name, characterAgent) + ". {character} cannot join anyone, if {player} needs recruits, should check local notable for this that can lend recruits. {character} cannot sell anything, {player} needs to check local market to buy supplies.";
             string[] possibleStyles = new string[] { "EXAMPLE_DIALOG_STYLE_FORMAL", "EXAMPLE_DIALOG_STYLE_DEFAULT", "EXAMPLE_DIALOG_STYLE_BLUNT", "EXAMPLE_DIALOG_STYLE_DEFAULT", "EXAMPLE_DIALOG_STYLE_DEFAULT" };
             string dialogStyle = possibleStyles.GetRandomElement();
             string pronoun = characterAgent.IsFemale ? "PRONOUN_FEMALE" : "PRONOUN_MALE";
             string gender = characterAgent.IsFemale ? "female" : "male";
             string updateVoice = "true";
-            string hobbyOrInterests = Settlement.CurrentSettlement.IsTown? "townresident" : "farming";
-            string characterRole = Settlement.CurrentSettlement.IsTown? "townsfolk" : "villager";
-            string motivation = (Settlement.CurrentSettlement.IsTown && Mission.Current.Scene.IsAtmosphereIndoor)? (name + " just wants to enjoy the music and good food in this tavern. ") : (name + " just wants to continue working because entire life is depending on that work. Thinks there is no time for chat, needs to get back to work.");
+            string hobbyOrInterests = Settlement.CurrentSettlement.IsTown ? "townresident" : "farming";
+            string characterRole = Settlement.CurrentSettlement.IsTown ? "townsfolk" : "villager";
+            string motivation = (Settlement.CurrentSettlement.IsTown && Mission.Current.Scene.IsAtmosphereIndoor) ? (name + " just wants to enjoy the music and good food in this tavern. ") : (name + " just wants to continue working because entire life is depending on that work. Thinks there is no time for chat, needs to get back to work.");
             string stageoflife = "LIFE_STAGE_TODDLERHOOD";
             string exampleDialog = GetExampleDialogue();
             if (characterAgent.Character.Age > 45)
             {
                 stageoflife = "LIFE_STAGE_LATE_ADULTHOOD";
-            } else if (characterAgent.Character.Age > 35)
+            }
+            else if (characterAgent.Character.Age > 35)
             {
                 stageoflife = "LIFE_STAGE_MIDDLE_ADULTHOOD";
-            } else if (characterAgent.Character.Age > 20)
+            }
+            else if (characterAgent.Character.Age > 20)
             {
                 stageoflife = "LIFE_STAGE_YOUNG_ADULTHOOD";
             }
 
             List<string> extrasList = new List<string>();
-            string timeAndStuff = "Currently its " + CharacterEngine.GetTimeToString(CampaignTime.Now.GetHourOfDay) + " and you are in " + ((Settlement.CurrentSettlement.IsTown && Mission.Current.Scene.IsAtmosphereIndoor) ? "tavern": (Settlement.CurrentSettlement.IsTown ? "town":"village"));
+            string timeAndStuff = "Currently its " + CharacterEngine.GetTimeToString(CampaignTime.Now.GetHourOfDay) + " and you are in " + ((Settlement.CurrentSettlement.IsTown && Mission.Current.Scene.IsAtmosphereIndoor) ? "tavern" : (Settlement.CurrentSettlement.IsTown ? "town" : "village"));
             extrasList.Add(timeAndStuff);
             extrasList.Add(AppereanceData(characterAgent));
             extrasList.Add(AppereanceData(Mission.Current.MainAgent));
             if ((Settlement.CurrentSettlement.IsTown && Mission.Current.Scene.IsAtmosphereIndoor) && MBRandom.RandomFloat < 0.5f)
-                extrasList.Add("{Character} feels a little drunk");
+                extrasList.Add("{character} feels a little drunk");
 
             extrasList.Add(GetWhatIWasDoing(characterAgent));
 
             if (MBRandom.RandomFloat < 0.3f)
-                extrasList.Add("{Character} does not know any poems or tales.");
+                extrasList.Add("{character} does not know any poems or tales.");
 
             if (Settlement.CurrentSettlement.IsTown)
-                extrasList.Add("{Character} is NOT in a village, {Character} is in a town, in a city");
+                extrasList.Add("{character} is NOT in a village, {character} is in a town, in a city");
 
 
             if (MBRandom.RandomFloat < 0.2f)
@@ -290,7 +298,7 @@ namespace Inworld.Engine
 
         public static string AppereanceData(Hero hero)
         {
-            string clothes = hero == Hero.MainHero ? "{Player} is wearing " : "{Character} is wearing ";
+            string clothes = hero == Hero.MainHero ? "{player} is wearing " : "{character} is wearing ";
             for (int i = (int)EquipmentIndex.ArmorItemBeginSlot; i < (int)EquipmentIndex.ArmorItemEndSlot; i++)
             {
                 var eq = hero.CivilianEquipment[(EquipmentIndex)i];
@@ -304,14 +312,14 @@ namespace Inworld.Engine
 
         public static string AppereanceData(Agent hero)
         {
-            string clothes = hero.IsMainAgent ? "{Player} is wearing " : "{Character} is wearing ";
-            
+            string clothes = hero.IsMainAgent ? "{player} is wearing " : "{character} is wearing ";
+
             for (int i = (int)EquipmentIndex.ArmorItemBeginSlot; i < (int)EquipmentIndex.ArmorItemEndSlot; i++)
             {
                 var eq = hero.SpawnEquipment[(EquipmentIndex)i];
                 if (eq.Item != null)
                 {
-                    clothes += eq.Item.Name.ToString() + ((i+1 == (int)EquipmentIndex.ArmorItemEndSlot) ? "" : " and ");
+                    clothes += eq.Item.Name.ToString() + ((i + 1 == (int)EquipmentIndex.ArmorItemEndSlot) ? "" : " and ");
                 }
             }
 
@@ -329,8 +337,8 @@ namespace Inworld.Engine
 
                 if (MBRandom.RandomFloat < 0.4f)
                 {
-                    clothes += " {Character} feel really threatened!";
-                } 
+                    clothes += " {character} feel really threatened!";
+                }
             }
 
             return clothes;
@@ -371,7 +379,7 @@ namespace Inworld.Engine
 
             return time;
         }
-            
+
 
         private static string GetProfession(string input, bool isVillager)
         {
@@ -395,7 +403,8 @@ namespace Inworld.Engine
             if (Corpus.townsfolkDialogueStyle.ContainsKey(sett.Culture.ToString().ToLower()))
             {
                 return Corpus.townsfolkDialogueStyle[sett.Culture.ToString().ToLower()];
-            } else
+            }
+            else
             {
                 return Corpus.townsfolkDialogueStyle["neutral"];
             }
@@ -409,20 +418,22 @@ namespace Inworld.Engine
             {
                 float age = character.BodyPropertiesValue.Age;
 
-                if(age < 15)
+                if (age < 15)
                 {
                     background = Corpus.villageKidBackgroundStory.GetRandomElement();
-                } else if(age < 25)
+                }
+                else if (age < 25)
                 {
                     background = Corpus.villageYoungBackgroundStory.GetRandomElement();
-                } else
+                }
+                else
                 {
 
                     background = Corpus.villagersBackgroundStory.GetRandomElement();
-                    background += ". {Character} works as " + GetProfession(background, true);
+                    background += ". {character} works as " + GetProfession(background, true);
 
                 }
-            } 
+            }
             else
             {
                 float age = character.BodyPropertiesValue.Age;
@@ -438,7 +449,7 @@ namespace Inworld.Engine
                 else
                 {
                     background = Corpus.townsfolkBackgroundStory.GetRandomElement();
-                    background += ". {Character} works as " + GetProfession(background, false);
+                    background += ". {character} works as " + GetProfession(background, false);
                 }
             }
 
@@ -486,25 +497,27 @@ namespace Inworld.Engine
                 if (Hero.MainHero.MapFaction.IsAtWarWith(conversationheroFaction))
                 {
                     returnStr = "{player} is noble but their kingdoms are at war";
-                } 
+                }
                 else
                 {
                     returnStr = "{player} is a noble of {faction}";
                     returnStr = returnStr.Replace("{faction}", Hero.MainHero.MapFaction.Name.ToString());
                 }
-            } else
+            }
+            else
             {
-                if(Hero.MainHero.Gold > 15000)
+                if (Hero.MainHero.Gold > 15000)
                 {
                     returnStr = "{player} is known to be a really wealthy person but {player} is not noble like {character}";
-                } 
+                }
                 else
                 {
-                    if(MobileParty.MainParty.MemberRoster.TotalHealthyCount > 100)
+                    if (MobileParty.MainParty.MemberRoster.TotalHealthyCount > 100)
                     {
                         returnStr = "{player} is not noble but leads a big army with around {count} soldiers";
                         returnStr = returnStr.Replace("{count}", MobileParty.MainParty.MemberRoster.TotalHealthyCount.ToString());
-                    } else
+                    }
+                    else
                     {
                         returnStr = "{player} is a common peasant and shouldnt be in the same room with nobles!";
                     }
@@ -518,7 +531,7 @@ namespace Inworld.Engine
         public static string[] GetFacts(Hero hero)
         {
             List<string> facts = new List<string>();
-            
+
             facts.Add("{character} knows that name of the {Player} is {player}");
             facts.Add("{character} knows that " + GetPlayerStatus(hero.MapFaction));
 
@@ -550,14 +563,30 @@ namespace Inworld.Engine
                 facts.Add(fact);
             }
 
-            if (hero.Children.Count() > 0)
+            if (hero.Children.Count() == 0)
             {
-                fact = "{character} has children ";
+                facts.Add("{character} has no children ");
+            }
+            else if (hero.Children.Count() == 1)
+            {
+                fact = "{character} has a ";
+                foreach (Hero child in hero.Children)
+                {
+                    fact += (child.IsFemale ? "daughter" : "son") + ", " + child.Name + ",";
+                    if (!child.IsAlive) fact += " but " + child.Name + " is deceased, ";
+                    else fact += " at age around " + ((int)child.Age);
+                }
+                facts.Add(fact);
+            }
+            else if (hero.Children.Count() > 0)
+            {
+                fact = "{character} has children: ";
                 foreach (Hero child in hero.Children)
                 {
                     fact += (child.IsFemale ? "daughter" : "son") + " " + child.Name + ",";
                     if (!child.IsAlive) fact += " but " + child.Name + " is deceased, ";
                     else fact += " at age around " + ((int)child.Age);
+                    fact += ", ";
                 }
                 facts.Add(fact);
             }
@@ -630,7 +659,7 @@ namespace Inworld.Engine
             if (MBRandom.RandomFloat < 0.2f)
                 facts.Add(Corpus.CalradianTales.GetRandomElement());
 
-            if(MBRandom.RandomFloat < 0.4f)
+            if (MBRandom.RandomFloat < 0.4f)
                 facts.Add(Corpus.CalradianPoems.GetRandomElement());
 
             for (int i = 0; i < facts.Count; i++)
@@ -639,20 +668,20 @@ namespace Inworld.Engine
                 fact = fact.Replace("{character}", hero.Name.ToString());
                 fact = fact.Replace("{player}", Hero.MainHero.Name.ToString());
                 Clan rival = GetRivalClan(hero.Clan);
-                fact = fact.Replace("{ruler}", hero.MapFaction == null? hero.Clan.Leader.Name.ToString() : hero.MapFaction.Leader.Name.ToString());
-                if(rival != null) fact = fact.Replace("{rival}", rival.Name.ToString());
+                fact = fact.Replace("{ruler}", hero.MapFaction == null ? hero.Clan.Leader.Name.ToString() : hero.MapFaction.Leader.Name.ToString());
+                if (rival != null) fact = fact.Replace("{rival}", rival.Name.ToString());
                 fact = fact.Replace("{culture}", Kingdom.All.GetRandomElement().Culture.Name.ToString());
                 if (rival != null) fact = fact.Replace("{rival_hero}", rival.Heroes.GetRandomElement().Name.ToString());
                 facts[i] = fact;
             }
 
-            facts.Add("{Character} does not need any help.");
-            facts.Add("{Character} does not consider rumored clans as it's enemy but just as a clan to be watched out.");
-            facts.Add("{Character} does not want anything from {Player}.");
-            facts.Add("{Character} cannot sell anything.");
-            facts.Add("{Character} cannot join anyone.");
-            facts.Add("{Character} cannot make deals at the moment.");
-            facts.Add("{Character} cannot sell you anything.");
+            facts.Add("{character} does not need any help.");
+            facts.Add("{character} does not consider rumored clans as its enemy but just as a clan to be watched out.");
+            facts.Add("{character} does not want anything from {player}.");
+            facts.Add("{character} cannot sell anything.");
+            facts.Add("{character} cannot join anyone.");
+            facts.Add("{character} cannot make deals at the moment.");
+            facts.Add("{character} cannot sell you anything.");
 
             return facts.ToArray();
         }
@@ -681,9 +710,9 @@ namespace Inworld.Engine
                     }
                 }
             }
-          
 
-            if(rivalClan == null)
+
+            if (rivalClan == null)
             {
                 return Clan.All.GetRandomElementWithPredicate(c => c != mainClan && c.Heroes.Count > 0);
             }

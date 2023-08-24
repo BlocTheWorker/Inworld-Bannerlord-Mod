@@ -51,7 +51,8 @@ namespace Inworld.Helper
                 {
                     var result = await response.Content.ReadAsStringAsync();
                     return true;
-                } else
+                }
+                else
                 {
                     return false;
                 }
@@ -84,8 +85,9 @@ namespace Inworld.Helper
         {
             List<MobileParty> list = new List<MobileParty>();
             var data = MobileParty.StartFindingLocatablesAroundPosition(pos, range);
-            for (MobileParty mobileParty = MobileParty.FindNextLocatable(ref data); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref data)) {
-                if(!list.Contains(mobileParty))
+            for (MobileParty mobileParty = MobileParty.FindNextLocatable(ref data); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref data))
+            {
+                if (!list.Contains(mobileParty))
                     list.Add(mobileParty);
             }
             return list;
